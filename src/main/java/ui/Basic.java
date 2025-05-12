@@ -3,8 +3,6 @@ package ui;
 import dispatcher.Dispatcher;
 import util.ScannerWrapper;
 
-import java.util.Scanner;
-
 public class Basic {
     public static void run() {
         ScannerWrapper scanner = new ScannerWrapper(System.in);

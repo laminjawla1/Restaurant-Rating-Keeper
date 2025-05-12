@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Jawla Local Aroma",
+    "location": "Busumbala",
+    "cuisine": "Local Deli",
+    "ratings": [],
+    "createdAt": "May 11, 2025, 4:11:18 PM",
+    "updatedAt": "May 11, 2025, 4:11:18 PM"
+  },
+  {
+    "id": 2,
+    "name": "Mango",
+    "location": "Senegambia",
+    "cuisine": "American/Indian/African",
+    "ratings": [],
+    "createdAt": "May 11, 2025, 4:12:11 PM",
+    "updatedAt": "May 11, 2025, 4:12:11 PM"
+  },
+  {
+    "id": 3,
+    "name": "Random",
+    "location": "Something",
+    "cuisine": "Anything",
+    "ratings": [],
+    "createdAt": "May 12, 2025, 1:35:50 PM",
+    "updatedAt": "May 12, 2025, 1:35:50 PM"
+  }
+]
