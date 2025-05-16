@@ -1,6 +1,7 @@
 package util;
 
 import java.io.InputStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ScannerWrapper {
@@ -9,12 +10,12 @@ public class ScannerWrapper {
         scanner = new Scanner(is);
     }
 
-    public int nextInt(String prompt) {
+    public int nextInt() {
         while (true) {
             try {
-                System.out.print(prompt);
-                return this.scanner.nextInt();
-            } catch (NumberFormatException e) {
+                System.out.print("$ ");
+                return Integer.parseInt(this.scanner.nextLine());
+            } catch (NumberFormatException | InputMismatchException e) {
                 System.out.println("Enter a valid number");
             }
         }

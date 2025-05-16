@@ -5,6 +5,7 @@ import de.vandermeer.asciitable.CWC_LongestLine;
 import models.Restaurant;
 import repo.Repo;
 import util.RMath;
+import util.ScannerWrapper;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,27 +33,43 @@ public class RestaurantService {
         repo.save();
     }
     public void rateRestaurant() {
-        Scanner scanner = new Scanner(System.in);
-        render();
-//        try {
-//            System.out.print("Enter a rating (1 - 5): ");
-//            int rating = scanner.nextInt();
-//            if (rating >= 1 && rating <= 5)
-//                rating
-//            System.out.println();
-//        }
+        ScannerWrapper scanner = new ScannerWrapper(System.in);
+
+        render(repo.getAll());
+
+        System.out.println("Select a restaurant by ID: ");
+        int id = scanner.nextInt();
+
+        Restaurant restaurant = repo.get(id);
+
+        if (restaurant == null) {
+            System.out.println("No restaurant matches the given ID");
+            return;
+        } else {
+            System.out.println(restaurant);
+        }
+
+        int rating;
+        do {
+            System.out.println("Enter a rating (1 - 5): ");
+            rating = scanner.nextInt();
+        } while (rating < 1 || rating > 5);
+
+        restaurant.setRatings(rating);
+        repo.save();
+        System.out.println(restaurant + " rated successfully!");
     }
 
     public void topPicksByCuisine() {
     }
 
-    public void render() {
+    public void render(ArrayList<Restaurant> rs) {
         AsciiTable at = new AsciiTable();
         at.getContext().setWidth(50);
         at.addRule();
         at.addRow("ID", "NANE", "CUISINE", "LOCATION", "AVERAGE RATING");
         at.addRule();
-        for (Restaurant r: repo.getAll())
+        for (Restaurant r: rs)
             at.addRow(r.getId(), r.getName(), r.getCuisine(), r.getLocation(), RMath.average(r.getRatings()));
         at.addRule();
         at.getRenderer().setCWC(new CWC_LongestLine());

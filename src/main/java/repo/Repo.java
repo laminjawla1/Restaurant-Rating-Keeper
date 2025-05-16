@@ -57,4 +57,11 @@ public class Repo {
     public ArrayList<Restaurant> getAll() {
         return this.restaurants;
     }
+
+    public Restaurant get(int id) {
+        for (Restaurant r: this.restaurants)
+            if (r.getId() == id)
+                return r;
+        return null;
+    }
 }
