@@ -10,7 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Repo {
     private final ArrayList<Restaurant> restaurants;
@@ -59,9 +61,20 @@ public class Repo {
     }
 
     public Restaurant get(int id) {
-        for (Restaurant r: this.restaurants)
+        for (Restaurant r : this.restaurants)
             if (r.getId() == id)
                 return r;
         return null;
+    }
+
+    public ArrayList<Restaurant> getByCuisine(String cuisine) {
+        return getAll().stream().filter(
+        r -> r.getCuisine().toLowerCase().startsWith(cuisine.toLowerCase()))
+                .collect(Collectors.toCollection(ArrayList::new)
+        );
+    }
+
+    public ArrayList<Restaurant> orderByAVGRating(ArrayList<Restaurant> restaurants) {
+        return restaurants;
     }
 }

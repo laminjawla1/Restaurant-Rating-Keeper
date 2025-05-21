@@ -2,7 +2,6 @@ package ui;
 
 import dispatcher.Dispatcher;
 import util.ScannerWrapper;
-import util.Terminal.*;
 
 import static util.Terminal.clearScreen;
 

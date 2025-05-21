@@ -36,7 +36,10 @@
     "name": "New Rest",
     "location": "Somewhere",
     "cuisine": "African",
-    "ratings": [],
+    "ratings": [
+      5,
+      4
+    ],
     "createdAt": "May 16, 2025, 11:37:58 AM",
     "updatedAt": "May 16, 2025, 11:37:58 AM"
   }
