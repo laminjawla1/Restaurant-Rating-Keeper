@@ -1,9 +1,12 @@
 package models;
 
+import util.RMath;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
-public class Restaurant {
+public class Restaurant implements Comparable<Restaurant> {
     private int id;
     private String name;
     private String location;
@@ -67,5 +70,10 @@ public class Restaurant {
     @Override
     public String toString() {
         return String.format("%s", getName());
+    }
+
+    @Override
+    public int compareTo(Restaurant other) {
+        return -1 * Double.compare(RMath.average(this.ratings), RMath.average(other.ratings));
     }
 }

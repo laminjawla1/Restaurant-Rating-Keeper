@@ -9,15 +9,17 @@ import java.util.ArrayList;
 public class Tabulate {
     public static void tabulate(ArrayList<Restaurant> rs) {
         AsciiTable at = new AsciiTable();
-        at.getContext().setWidth(50);
         at.addRule();
-        at.addRow("ID", "NANE", "CUISINE", "LOCATION", "AVERAGE RATING");
+        at.addRow("ID", "NAME", "CUISINE", "LOCATION", "AVERAGE RATING", "Stars");
         at.addRule();
-        for (Restaurant r: rs)
-            at.addRow(r.getId(), r.getName(), r.getCuisine(), r.getLocation(), RMath.average(r.getRatings()));
+        for (Restaurant r: rs) {
+            double averageRating = RMath.average(r.getRatings());
+            at.addRow(
+                r.getId(), r.getName(), r.getCuisine(), r.getLocation(), averageRating, Stars.stars(averageRating)
+            );
+        }
         at.addRule();
         at.getRenderer().setCWC(new CWC_LongestLine());
-        String output = at.render();
-        System.out.println(output);
+        System.out.println(at.render());
     }
 }

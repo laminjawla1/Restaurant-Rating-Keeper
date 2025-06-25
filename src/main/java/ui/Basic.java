@@ -1,6 +1,6 @@
 package ui;
 
-import dispatcher.Dispatcher;
+import dispatcher.BasicDispatcher;
 import util.ScannerWrapper;
 
 import static util.Terminal.clearScreen;
@@ -8,7 +8,7 @@ import static util.Terminal.clearScreen;
 public class Basic {
     public static void run() {
         ScannerWrapper scanner = new ScannerWrapper(System.in);
-        Dispatcher dispatcher = new Dispatcher();
+        BasicDispatcher dispatcher = new BasicDispatcher();
 
         clearScreen();
         System.out.println("WELCOME! You are using the Basic User Interface");
@@ -34,6 +34,7 @@ public class Basic {
         System.out.println("1. Add Restaurant");
         System.out.println("2. Rate Restaurant");
         System.out.println("3. List top picks by cuisine");
+        System.out.println("4. List All Restaurants");
         System.out.println("0. Exit\n");
     }
 }

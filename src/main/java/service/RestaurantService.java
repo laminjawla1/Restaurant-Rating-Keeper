@@ -1,7 +1,7 @@
 package service;
 
 import models.Restaurant;
-import repo.Repo;
+import repository.Repo;
 import util.ScannerWrapper;
 import util.Tabulate;
 
@@ -43,8 +43,6 @@ public class RestaurantService {
         if (restaurant == null) {
             System.out.println("No restaurant matches the given ID");
             return;
-        } else {
-            System.out.println(restaurant);
         }
 
         int rating;
@@ -56,7 +54,10 @@ public class RestaurantService {
         restaurant.setRatings(rating);
         repo.save();
         System.out.println(restaurant + " rated successfully!");
-        scanner.close();
+    }
+
+    public void listAllRestaurants() {
+        Tabulate.tabulate(repo.getAll());
     }
 
     public void topPicksByCuisine() {

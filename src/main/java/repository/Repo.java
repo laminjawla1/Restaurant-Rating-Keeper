@@ -1,4 +1,4 @@
-package repo;
+package repository;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,7 +37,6 @@ public class Repo {
     public void save() {
         try (FileWriter writer = new FileWriter(this.db)) {
             gson.toJson(this.restaurants, writer);
-            System.out.println("Successfully wrote to " + this.db);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -74,6 +73,14 @@ public class Repo {
     }
 
     public ArrayList<Restaurant> orderByAVGRating(ArrayList<Restaurant> restaurants) {
+        restaurants.sort(Restaurant::compareTo);
         return restaurants;
+    }
+
+    public void deleteById(int id) {
+        Restaurant restaurant = get(id);
+        if (restaurant == null) throw new NoSuchElementException("No Restaurant object matches the given ID");
+        restaurants.remove(restaurant);
+        save();
     }
 }

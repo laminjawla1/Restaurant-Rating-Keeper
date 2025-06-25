@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class RMath {
     public static double average(ArrayList<Integer> numbers) {
         if (numbers.isEmpty()) return 0;
-        return sum(numbers) / numbers.size();
+        return Double.parseDouble(String.format("%.1f", sum(numbers) / numbers.size()));
     }
 
     public static double sum(ArrayList<Integer> numbers) {
