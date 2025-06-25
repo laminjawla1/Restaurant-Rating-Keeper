@@ -1,1 +1,1 @@
-![Alt text](./RRK_Workflow.png?raw=true "Title")
+![Alt text](./RRK_Workflow.svg?raw=true "Title")
