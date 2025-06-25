@@ -1,1 +1,1 @@
-![Alt text](./RRK_Workflow.png "Title")
+![Alt text](./RRK_Workflow.png "Workflow")
